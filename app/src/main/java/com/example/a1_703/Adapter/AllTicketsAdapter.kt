@@ -60,8 +60,9 @@ class AllTicketsAdapter(var context: Context,var titles:ArrayList<String>,var co
             var os=FileOutputStream(File("/storage/emulated/0/Download/","${abs(Random.nextInt())}.png"))
             b.root.drawToBitmap().compress(Bitmap.CompressFormat.PNG,86,os)
 //            os.flush()
-            Toast.makeText(context,"儲存成功",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"已將票卡資訊儲存在下載資料夾中",Toast.LENGTH_SHORT).show()
         }
         return b.root
+
     }
 }

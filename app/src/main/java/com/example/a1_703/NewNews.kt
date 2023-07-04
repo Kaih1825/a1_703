@@ -1,5 +1,6 @@
 package com.example.a1_703
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +26,7 @@ import javax.xml.validation.Validator
 class NewNews : AppCompatActivity() {
     lateinit var b: ActivityNewNewsBinding
 
+    @SuppressLint("ClickableViewAccessibility")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,11 +68,12 @@ class NewNews : AppCompatActivity() {
             CalendarConstraints.Builder().setValidator(validator).build()
         ).build()
 
-        b.date.setOnClickListener {
+        b.date.setOnTouchListener { v, event ->
             if(datePicker.isAdded){
-                return@setOnClickListener
+                return@setOnTouchListener true
             }
             datePicker.show(supportFragmentManager, "")
+            return@setOnTouchListener true
         }
 
         datePicker.addOnPositiveButtonClickListener {

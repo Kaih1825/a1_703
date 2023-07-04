@@ -1,10 +1,17 @@
 package com.example.a1_703
 
+import android.appwidget.AppWidgetManager
+import android.appwidget.AppWidgetProvider
+import android.content.ComponentName
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.text.Editable
 import android.util.Log
+import com.example.a1_703.Widgets.MyTickets
+import com.example.a1_703.Widgets.NewsWidget
+import com.example.a1_703.Widgets.updateAppWidget2
+import com.example.a1_703.Widgets.updateAppWidget3
 import org.json.JSONArray
 import org.json.JSONObject
 import java.nio.charset.Charset
@@ -111,6 +118,10 @@ class SqlMethods {
 
         fun insertNews(jsonText: String){
             database.execSQL("INSERT INTO storeNews(jsonText) VALUES('$jsonText')")
+            var ids=AppWidgetManager.getInstance(context).getAppWidgetIds(ComponentName(context,NewsWidget::class.java))
+            for(i in ids){
+                updateAppWidget3(context,AppWidgetManager.getInstance(context),i)
+            }
         }
     }
 
@@ -127,6 +138,10 @@ class SqlMethods {
 
         fun insert(name: String,count:String){
             database.execSQL("INSERT INTO Tickets(name,count) VALUES('${String(name.toByteArray(),Charsets.UTF_8)}',$count)")
+            var ids=AppWidgetManager.getInstance(context).getAppWidgetIds(ComponentName(context,MyTickets::class.java))
+            for(i in ids){
+                updateAppWidget2(context,AppWidgetManager.getInstance(context),i)
+            }
         }
 
         fun getAll(): Cursor {

@@ -14,4 +14,21 @@
         <item name="android:windowFullscreen">true</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.A1_703.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <!-- Radius of the outer bound of widgets to make the rounded corners -->
+        <item name="appWidgetRadius">16dp</item>
+        <!--
+        Radius of the inner view's bound of widgets to make the rounded corners.
+        It needs to be 8dp or less than the value of appWidgetRadius
+        -->
+        <item name="appWidgetInnerRadius">8dp</item>
+    </style>
+
+    <style name="Theme.A1_703.AppWidgetContainer" parent="Theme.Material3.Dark">
+        <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
+        <item name="appWidgetRadius">360dp</item>
+        <item name="appWidgetInnerRadius">360dp</item>
+        <item name="appWidgetPadding">0dp</item>
+    </style>
 </resources>

@@ -13,6 +13,45 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.A1_703"
         tools:targetApi="31">
+        <receiver
+            android:name=".Widgets.NewsWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.a1_703.newClick" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/news_widget_info" />
+        </receiver>
+        <receiver
+            android:name=".Widgets.MyTickets"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.a1_703.myticket_click_lg" />
+                <action android:name="com.example.a1_703.next" />
+                <action android:name="com.example.a1_703.pre" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/my_tickets_info" />
+        </receiver>
+        <receiver
+            android:name=".Widgets.GoToMyTicketWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.a1_703.myticket_click" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/go_to_my_ticket_widget_info" />
+        </receiver>
+
         <activity
             android:name=".AllTickets"
             android:exported="false" />
@@ -67,6 +106,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".Widgets.NewsListWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
     </application>
 
 </manifest>
