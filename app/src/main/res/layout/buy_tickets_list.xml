@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:strokeWidth="2dp"
+        app:cardCornerRadius="2dp"
+        android:layout_marginVertical="5dp"
+        app:strokeColor="@color/blue">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⛰️職訓冒險島⛰️"
+                    android:textSize="20dp"
+                    android:id="@+id/title"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/holo_green_light"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="體驗職類的操作秘辛！"
+                    android:layout_marginHorizontal="10dp"
+                    android:textSize="16dp"
+                    android:id="@+id/subTitle"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/holo_green_light"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:id="@+id/context"
+                android:text="想跟技能選手一樣找到自己的興趣所在嗎？快來這區踩點！
+透過「性格測試」認識自我，並進一步「體驗職場」，探索未來更多可能！"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="end"
+                android:id="@+id/buy"
+                android:text="購買票卷"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

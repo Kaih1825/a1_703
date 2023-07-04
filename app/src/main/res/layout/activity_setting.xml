@@ -130,5 +130,6 @@
         android:layout_height="50dp"
         android:backgroundTint="@color/blue"
         android:id="@+id/logout"
+        app:cornerRadius="10dp"
         android:text="登出"/>
 </LinearLayout>

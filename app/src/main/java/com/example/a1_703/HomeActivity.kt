@@ -21,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         b.buyTicket.setOnClickListener {
-            startActivity(Intent(this,ButTickets::class.java))
+            startActivity(Intent(this,BuyTicket::class.java))
         }
 
         b.skill.setOnClickListener {
@@ -30,6 +30,10 @@ class HomeActivity : AppCompatActivity() {
 
         b.setting.setOnClickListener {
             startActivity(Intent(this,SettingActivity::class.java))
+        }
+
+        b.allTickets.setOnClickListener {
+            startActivity(Intent(this,AllTickets::class.java))
         }
 
     }

@@ -68,6 +68,7 @@
             android:backgroundTint="@color/blue"
             android:layout_marginHorizontal="50dp"
             android:id="@+id/login"
+            app:cornerRadius="10dp"
             android:text="登入"/>
     </LinearLayout>
 

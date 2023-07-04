@@ -1,5 +1,6 @@
 package com.example.a1_703
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,10 @@ class News : AppCompatActivity() {
         b= ActivityNewsBinding.inflate(layoutInflater)
         setContentView(b.root)
 
+        b.newNews.setOnClickListener {
+            startActivity(Intent(this,NewNews()::class.java))
+        }
+
         var images= arrayOf(R.drawable.banner1,R.drawable.banner2,R.drawable.banner3,R.drawable.banner4)
         b.viewPager.adapter=ViewPagerAdapter(this,images)
         b.viewPager.offscreenPageLimit=3
@@ -34,18 +39,20 @@ class News : AppCompatActivity() {
                 iS[position].setCardBackgroundColor(resources.getColor(R.color.blue))
             }
         })
-        var tmpJsonArr=JSONArray(assets.open("news.json").bufferedReader().readText())
-        var jsonArray= arrayListOf<JSONObject>()
-        for(i in 0 until  tmpJsonArr.length()){
-            jsonArray.add(tmpJsonArr[i] as JSONObject)
+
+        b.allStar.setOnClickListener {
+            startActivity(Intent(this,AllStarActivity::class.java))
         }
+
+        var jsonArray= SqlMethods.storeNews(this).getNews()
         b.list.adapter=NewsListAdapter(this,jsonArray)
 
         b.chips.setOnCheckedStateChangeListener { _, checkedIds ->
             var type=b.chips.findViewById<Chip>(checkedIds[0]).text.toString()
-            var tisJson=jsonArray
+            var jsonArray2= SqlMethods.storeNews(this).getNews()
+            var tisJson=jsonArray2
             if(type!="全部"){
-                tisJson= jsonArray.filter { it.getString("Type")==type } as ArrayList<JSONObject>
+                tisJson= jsonArray2.filter { it.getString("Type")==type } as ArrayList<JSONObject>
             }
 
             b.list.adapter=NewsListAdapter(this,tisJson)
@@ -55,5 +62,18 @@ class News : AppCompatActivity() {
             finish()
         }
 
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        var jsonArray=SqlMethods.storeNews(this).getNews()
+        var checkedIds=b.chips.checkedChipIds
+        var type=b.chips.findViewById<Chip>(checkedIds[0]).text.toString()
+        var tisJson=jsonArray
+        if(type!="全部"){
+            tisJson= jsonArray.filter { it.getString("Type")==type } as ArrayList<JSONObject>
+        }
+
+        b.list.adapter=NewsListAdapter(this,tisJson)
     }
 }

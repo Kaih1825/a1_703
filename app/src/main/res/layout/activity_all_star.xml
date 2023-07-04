@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:clipToPadding="false"
-    android:clipChildren="false"
     android:padding="10dp"
-    tools:context=".News">
+    tools:context=".AllStarActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,67 +40,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="最新消息"
+                android:text="所有最愛"
                 android:textColor="@color/blue"
                 android:textSize="30dp"
                 android:textStyle="bold" />
         </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/allStar"
+        <Space
             android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/star"
-            android:layout_gravity="center"
-            android:backgroundTint="@android:color/transparent"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:clipToPadding="false"
-        android:layout_marginHorizontal="-10dp"
-        android:clipChildren="false"
-        android:padding="10dp"
-        android:id="@+id/viewPager"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal">
-        <androidx.cardview.widget.CardView
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            app:cardCornerRadius="360dp"
-            android:id="@+id/i1"
-            android:layout_marginHorizontal="3dp"
-            app:cardBackgroundColor="@android:color/darker_gray"/>
-        <androidx.cardview.widget.CardView
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            app:cardCornerRadius="360dp"
-            android:id="@+id/i2"
-            android:layout_marginHorizontal="3dp"
-            app:cardBackgroundColor="@android:color/darker_gray"/>
-        <androidx.cardview.widget.CardView
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            app:cardCornerRadius="360dp"
-            android:id="@+id/i3"
-            android:layout_marginHorizontal="3dp"
-            app:cardBackgroundColor="@android:color/darker_gray"/>
-        <androidx.cardview.widget.CardView
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            app:cardCornerRadius="360dp"
-            android:id="@+id/i4"
-            android:layout_marginHorizontal="3dp"
-            app:cardBackgroundColor="@android:color/darker_gray"/>
-    </LinearLayout>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -112,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:selectionRequired="true"
+            app:chipCornerRadius="5dp"
             app:singleLine="true"
             android:id="@+id/chips"
             app:checkedChip="@+id/s1"
@@ -120,21 +69,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/s1"
+                app:chipCornerRadius="5dp"
                 android:backgroundTint="@color/chip_color"
                 android:checkable="true"
                 app:chipStrokeWidth="0dp"
                 android:textColor="@color/chip_txt_color"
-                app:chipCornerRadius="5dp"
                 android:text="全部"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/s2"
                 android:checkable="true"
+                app:chipCornerRadius="5dp"
                 android:backgroundTint="@color/chip_color"
                 app:chipStrokeWidth="0dp"
                 android:textColor="@color/chip_txt_color"
-                app:chipCornerRadius="5dp"
                 android:text="全國賽"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
@@ -142,8 +91,8 @@
                 android:id="@+id/s3"
                 android:checkable="true"
                 android:backgroundTint="@color/chip_color"
-                app:chipCornerRadius="5dp"
-                app:chipStrokeWidth="0dp"
+                app:chipStrokeWidth="0dp"            app:chipCornerRadius="5dp"
+
                 android:textColor="@color/chip_txt_color"
                 android:text="身障賽"/>
             <com.google.android.material.chip.Chip
@@ -151,17 +100,17 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/s4"
                 android:checkable="true"
-                app:chipCornerRadius="5dp"
                 android:backgroundTint="@color/chip_color"
                 app:chipStrokeWidth="0dp"
+                app:chipCornerRadius="5dp"
                 android:textColor="@color/chip_txt_color"
                 android:text="國際賽"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/s5"
-                app:chipCornerRadius="5dp"
                 android:checkable="true"
+                app:chipCornerRadius="5dp"
                 android:backgroundTint="@color/chip_color"
                 app:chipStrokeWidth="0dp"
                 android:textColor="@color/chip_txt_color"
@@ -169,8 +118,8 @@
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:chipCornerRadius="5dp"
                 android:id="@+id/s6"
+                app:chipCornerRadius="5dp"
                 android:checkable="true"
                 android:backgroundTint="@color/chip_color"
                 app:chipStrokeWidth="0dp"
@@ -179,14 +128,6 @@
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cornerRadius="10dp"
-        android:layout_gravity="end"
-        android:id="@+id/newNews"
-        android:backgroundTint="@color/blue"
-        android:text="＋新增貼文"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -196,4 +137,5 @@
             android:divider="@null"
             android:id="@+id/list"/>
     </LinearLayout>
+
 </LinearLayout>

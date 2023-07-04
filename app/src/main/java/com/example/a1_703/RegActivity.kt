@@ -43,7 +43,7 @@ class RegActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 var txt = b.tel.text.toString()
-                if (!Regex("[0-9]{10}").matches(txt)) {
+                if (!Regex("^09[0-9]{2}-[0-9]{3}-[0-9]{3}").matches(txt)) {
                     b.tel.error = "格式錯誤"
                 }
             }
@@ -110,6 +110,10 @@ class RegActivity : AppCompatActivity() {
         }
 
         b.reg.setOnClickListener{
+            if(b.pwd1.text.isEmpty() || b.edtEmail.text.isEmpty() || b.name.text.isEmpty() || b.tel.text.isEmpty()){
+                b.pwd2.error="有格子沒填"
+                return@setOnClickListener
+            }
             if(b.pwd2.text.toString()!=b.pwd1.text.toString()){
                 b.pwd2.error="兩次密碼不同"
                 return@setOnClickListener
