@@ -140,6 +140,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue"
         android:inputType="textPassword"
+        android:imeOptions="actionDone"
         android:id="@+id/pwd2"/>
 
     <com.google.android.material.button.MaterialButton

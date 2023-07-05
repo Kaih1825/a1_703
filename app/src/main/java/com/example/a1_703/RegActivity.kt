@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.view.KeyEvent
 import android.view.View
 import android.view.WindowInsets
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
@@ -103,11 +104,21 @@ class RegActivity : AppCompatActivity() {
             sex="Girl"
         }
 
-        b.pwd2.addTextChangedListener {
-            if(b.pwd2.text.toString()!=b.pwd1.text.toString()){
-                b.pwd2.error="兩次密碼不同"
+        b.pwd2.setOnEditorActionListener(object : TextView.OnEditorActionListener{
+            override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
+                if(b.pwd2.text.toString()!=b.pwd1.text.toString()){
+                    b.pwd2.error="兩次密碼不同"
+                }
+                return true
             }
-        }
+
+        })
+
+//        b.pwd2.addTextChangedListener {
+//            if(b.pwd2.text.toString()!=b.pwd1.text.toString()){
+//                b.pwd2.error="兩次密碼不同"
+//            }
+//        }
 
         b.reg.setOnClickListener{
             if(b.pwd1.text.isEmpty() || b.edtEmail.text.isEmpty() || b.name.text.isEmpty() || b.tel.text.isEmpty()){

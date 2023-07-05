@@ -113,6 +113,8 @@ class SqlMethods {
                 jsonArray.add(JSONObject(cursor.getString(0)))
                 cursor.moveToNext()
             }
+            jsonArray.sortBy { it.getString("Date") }
+            jsonArray.reverse()
             return jsonArray
         }
 
